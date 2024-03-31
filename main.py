@@ -51,10 +51,12 @@ col3.metric("湿度", f"{now_weather[3]} %")
 """
 #### 今日の気温に適した服装
 """
-st.page_link(page=clothing_url_dict[today_temp], label=f'現在の気温 **{today_temp}** ℃に適した服装（Oggi.jp）',icon='👔')
-st.page_link(page=clothing_url_dict[today_max_temp], label=f'最高気温 **{today_max_temp}** ℃に適した服装（Oggi.jp）',icon='👕')
-st.page_link(page=clothing_url_dict[today_min_temp], label=f'最低気温 **{today_min_temp}** ℃に適した服装（Oggi.jp）',icon='🧥')
-
+if 5 <= today_temp <= 30:
+    st.page_link(page=clothing_url_dict[today_temp], label=f'現在の気温 **{today_temp}** ℃に適した服装（Oggi.jp）',icon='👔')
+if 5 <= today_max_temp <= 30:
+    st.page_link(page=clothing_url_dict[today_max_temp], label=f'最高気温 **{today_max_temp}** ℃に適した服装（Oggi.jp）',icon='👕')
+if 5 <= today_min_temp <= 30:
+    st.page_link(page=clothing_url_dict[today_min_temp], label=f'最低気温 **{today_min_temp}** ℃に適した服装（Oggi.jp）',icon='🧥')
 
 # 2カラムで表示
 left_col, right_col = st.columns(2)
