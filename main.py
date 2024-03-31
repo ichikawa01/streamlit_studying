@@ -10,7 +10,7 @@ import clothing_url
 clothing_url_dict = clothing_url.clothing_url_dict
 
 # 今日の日付を取得
-dt = datetime.datetime.today()
+dt = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
 today_year = dt.year
 today_month = dt.month
 today_day = dt.day
