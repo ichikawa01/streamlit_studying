@@ -24,12 +24,6 @@ PARAMS = {
 #     'appid': API_KEY
 # }
 
-response = requests.get(BASE_URL, params=PARAMS)
-data = response.json()
-
-response_fore = requests.get(FORECAST_URL, params=PARAMS)
-data_fore = response_fore.json()
-
 
 
 
@@ -56,6 +50,9 @@ weather_en_to_ja = {
 # 確認用
 def weather_print():
     # 現在
+    response = requests.get(BASE_URL, params=PARAMS)
+    data = response.json()
+
     if response.status_code == 200:
         main_data = data['main']
         weather_data = data['weather'][0]
@@ -70,6 +67,9 @@ def weather_print():
         print(f"エラー: {data['message']}")
 
     # 予報
+    response_fore = requests.get(FORECAST_URL, params=PARAMS)
+    data_fore = response_fore.json()
+    
     if response_fore.status_code == 200:
         list_data_fore = data_fore['list'][0]
         main_data_fore = list_data_fore['main']
@@ -98,6 +98,9 @@ def weather_print():
 
 def get_now_weather():
     # 現在
+    response = requests.get(BASE_URL, params=PARAMS)
+    data = response.json()
+
     if response.status_code == 200:
         main_data = data['main']
         weather_data = data['weather'][0]
@@ -112,6 +115,9 @@ def get_now_weather():
 
 def get_for_weather():
     # 予報
+    response_fore = requests.get(FORECAST_URL, params=PARAMS)
+    data_fore = response_fore.json()
+    
     if response_fore.status_code == 200:
         list_data_fore = data_fore['list'][0]
         # main_data_fore = list_data_fore['main']
